@@ -6,7 +6,7 @@
 /*   By: repinat <repinat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:09:16 by repinat           #+#    #+#             */
-/*   Updated: 2023/02/23 17:31:27 by repinat          ###   ########.fr       */
+/*   Updated: 2023/03/06 14:53:25 by repinat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,34 @@ void	*east_texture(char *str, int i, t_vars *cub)
 void	*ground_rgb(char *str, int i, t_vars *cub)
 {
 	char	*dup;
+	char	**rgb;
+	char	*hex;
 
 	cub->count_l++;
 	while (str[i] && !(ft_isdigit(str[i])))
 		i++;
 	dup = ft_strdup(&str[i]);
-	// printf("%s\n", dup);
-	return (dup);
+	rgb = ft_split(dup, ',');
+	free(dup);
+	hex = rgb_to_hex(rgb);
+	
+	return (rgb);
 }
 
 void	*sky_rgb(char *str, int i, t_vars *cub)
 {
 	char	*dup;
+	char	**rgb;
+	char	*hex;
 
 	cub->count_l++;
 	while (str[i] && !(ft_isdigit(str[i])))
 		i++;
 	dup = ft_strdup(&str[i]);
-	// printf("%s\n", dup);
+	rgb = ft_split(dup, ',');
+	free(dup);
+	hex = rgb_to_hex(rgb);
+	
 	return (dup);
 }
 
@@ -188,8 +198,8 @@ int main(int ac, char **av)
 	set_map(&cub);
 	if (!ft_parsing(ac, av, &cub))
 	{
-		// ft_free_all(&cub);
-		// return (0);
+		ft_free_all(&cub);
+		return (0);
 	}
 	// ft_free_all(&cub);
 

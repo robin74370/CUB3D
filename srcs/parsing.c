@@ -6,7 +6,7 @@
 /*   By: repinat <repinat@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:33:53 by repinat           #+#    #+#             */
-/*   Updated: 2023/02/23 16:04:51 by repinat          ###   ########.fr       */
+/*   Updated: 2023/03/06 14:03:19 by repinat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	ft_parsing(int ac, char **av, t_vars *cub)
 	}
 	if (!one_player(cub->map))
 	{
-	
+		
 		return (0);
 	}
 	if (!closed_map(cub->map, cub))
